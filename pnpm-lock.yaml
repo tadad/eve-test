@@ -17,6 +17,9 @@ importers:
       eve:
         specifier: ^0.11.6
         version: 0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)
+      eve-channel-agentmail:
+        specifier: file:../eve-channel-agentmail
+        version: file:../eve-channel-agentmail(eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7))
       zod:
         specifier: 4.4.3
         version: 4.4.3
@@ -159,6 +162,9 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
+  '@stablelib/base64@1.0.1':
+    resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
+
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
@@ -271,6 +277,10 @@ packages:
   '@workflow/serde@4.1.0':
     resolution: {integrity: sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ==}
 
+  agentmail@0.5.12:
+    resolution: {integrity: sha512-K8fpI7JB1W/J9W0bTPHptUT+MkTnjRXVbpVqJFXwXtTn4EOuY0+RGap+v+yUioqEgxJ1kFz2zFKmWyNUDoS6uQ==}
+    engines: {node: '>=18.0.0'}
+
   ai@7.0.0-beta.178:
     resolution: {integrity: sha512-kOfIbf23FDkvvfDHOS1gIjImBF9MlYut8fEMlps57vvS622VKL1PeEDLJ181aVd2LPSiDr3SupAMSzI2rEaW3w==}
     engines: {node: '>=22'}
@@ -334,6 +344,11 @@ packages:
       wrangler:
         optional: true
 
+  eve-channel-agentmail@file:../eve-channel-agentmail:
+    resolution: {directory: ../eve-channel-agentmail, type: directory}
+    peerDependencies:
+      eve: ^0.11.6
+
   eve@0.11.6:
     resolution: {integrity: sha512-GwQakJ9MmMAmqgcrQk36pwb4qez+S9Vmm5kSPxqD0zoGxIlUHPrcAFevj3tbw9U9PqNNBCLuzdahxTdgr5WfJA==}
     engines: {node: '>=24'}
@@ -385,6 +400,9 @@ packages:
 
   exsolve@1.0.8:
     resolution: {integrity: sha512-LmDxfWXwcTArk8fUEnOfSZpHOJ6zOMUJKOtFLFqJLoKJetuQG874Uc7/Kki7zFLzYybmZhp1M7+98pfMqeX8yA==}
+
+  fast-sha256@1.3.0:
+    resolution: {integrity: sha512-n11RGP/lrWEFI/bWdygLxhI+pVeo1ZYIVwvvPkW7azl/rOy+F3HYRZ2K5zeE9mmkhQppyv9sQFx0JM9UabnpPQ==}
 
   get-stream@6.0.1:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
@@ -521,9 +539,15 @@ packages:
     engines: {node: '>=20.16.0'}
     hasBin: true
 
+  standardwebhooks@1.0.0:
+    resolution: {integrity: sha512-BbHGOQK9olHPMvQNHWul6MYlrRTAOKn03rOe4A8O3CLWhNf4YHBqq2HJKKC+sfqpxiBY52pNeesD6jIiLDz8jg==}
+
   strip-final-newline@2.0.0:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}
     engines: {node: '>=6'}
+
+  svix@1.96.0:
+    resolution: {integrity: sha512-bypvS7RhYYysD/AAnQzV7EIM08rP9aI394VPr2LGb63K17n4hYFfZPWCpFCFs7ZhYEfdO6Rtci16zxfw14ygCg==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -612,6 +636,18 @@ packages:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
     hasBin: true
+
+  ws@8.21.0:
+    resolution: {integrity: sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
 
   xdg-app-paths@5.5.1:
     resolution: {integrity: sha512-hI3flOB4PLZIy5prbtTpirobtPE2ZtZ52szO+2mM9Efp6ErM398La+C1lIpNWDfNoQk+6Lsi6nMcCwVB7pxeMQ==}
@@ -724,6 +760,8 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
+  '@stablelib/base64@1.0.1': {}
+
   '@standard-schema/spec@1.1.0': {}
 
   '@superradcompany/microsandbox-darwin-arm64@0.5.7':
@@ -801,6 +839,13 @@ snapshots:
 
   '@workflow/serde@4.1.0': {}
 
+  agentmail@0.5.12:
+    dependencies:
+      ws: 8.21.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   ai@7.0.0-beta.178(zod@4.4.3):
     dependencies:
       '@ai-sdk/gateway': 4.0.0-beta.109(zod@4.4.3)
@@ -828,6 +873,15 @@ snapshots:
       exsolve: 1.0.8
       httpxy: 0.5.3
       srvx: 0.11.16
+
+  eve-channel-agentmail@file:../eve-channel-agentmail(eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)):
+    dependencies:
+      agentmail: 0.5.12
+      eve: 0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)
+      svix: 1.96.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7):
     dependencies:
@@ -889,6 +943,8 @@ snapshots:
       strip-final-newline: 2.0.0
 
   exsolve@1.0.8: {}
+
+  fast-sha256@1.3.0: {}
 
   get-stream@6.0.1: {}
 
@@ -1028,7 +1084,16 @@ snapshots:
 
   srvx@0.11.16: {}
 
+  standardwebhooks@1.0.0:
+    dependencies:
+      '@stablelib/base64': 1.0.1
+      fast-sha256: 1.3.0
+
   strip-final-newline@2.0.0: {}
+
+  svix@1.96.0:
+    dependencies:
+      standardwebhooks: 1.0.0
 
   tslib@2.8.1:
     optional: true
@@ -1047,6 +1112,8 @@ snapshots:
   which@2.0.2:
     dependencies:
       isexe: 2.0.0
+
+  ws@8.21.0: {}
 
   xdg-app-paths@5.5.1:
     dependencies:

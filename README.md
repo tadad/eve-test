@@ -1,6 +1,6 @@
-# Eve Slack Demo
+# Eve Slack + AgentMail Demo
 
-Minimal Eve project for demonstrating a Slack agent with channel mentions, DMs, thread context, mention preservation, tools, skills, and approval buttons.
+Minimal Eve project for demonstrating a Slack agent with channel mentions, DMs, thread context, mention preservation, tools, skills, approval buttons, and AgentMail email thread replies.
 
 ## Local setup
 
@@ -13,12 +13,15 @@ pnpm dev
 
 Slack events cannot be tested fully against local dev because Slack webhooks are forwarded through Vercel Connect to a deployed Vercel project.
 
+AgentMail webhooks can be tested locally if you expose `pnpm dev` through a tunnel and point AgentMail at `https://<tunnel-host>/eve/v1/agentmail`.
+
 ## Deployed demo
 
 - Vercel project: `tadads-projects/eve-test`
 - Production URL: `https://eve-test-five.vercel.app`
 - Slack connector: `slack/eve-slack-demo`
 - Slack webhook route: `POST /eve/v1/slack`
+- AgentMail webhook route: `POST /eve/v1/agentmail`
 
 The Slack route is deployed and mounted. A raw unauthenticated POST returns `401 unauthorized`, which is expected because Slack webhooks must arrive through Vercel Connect verification.
 
@@ -28,7 +31,15 @@ Model requests are currently blocked until billing is enabled for Vercel AI Gate
 https://vercel.com/tadads-projects/~/ai?modal=add-credit-card
 ```
 
-After that, the existing deployment should be able to answer Slack messages without code changes.
+After that, the existing deployment should be able to answer Slack and AgentMail messages without code changes.
+
+AgentMail needs `AGENTMAIL_API_KEY` and `AGENTMAIL_WEBHOOK_SECRET` set in the deployment environment. Configure the AgentMail webhook URL to:
+
+```text
+https://eve-test-five.vercel.app/eve/v1/agentmail
+```
+
+Subscribe to `message.received` for the first end-to-end test.
 
 ## Demo prompts
 
@@ -39,6 +50,7 @@ After that, the existing deployment should be able to answer Slack messages with
 - In the same Slack thread: `summarize what we have tested so far`
 - In a DM: `does the DM path work?`
 - With mentions: `please preserve <@USER_ID> and <#CHANNEL_ID>`
+- Via AgentMail: send an email to the configured inbox asking `What can you demo over email?`
 
 ## Credentials and access needed later
 
@@ -50,6 +62,7 @@ To finish the deployed Slack setup, provide:
 - Slack workspace permission to install/authorize the Vercel-managed Slack app.
 - A Vercel project linked to this directory.
 - `SLACK_CONNECTOR`, the Vercel Connect UID, for example `slack/eve-slack-demo`.
+- `AGENTMAIL_API_KEY` and `AGENTMAIL_WEBHOOK_SECRET` from AgentMail.
 
 ## Later Vercel/Slack setup
 
