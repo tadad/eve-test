@@ -9,17 +9,19 @@
     "#evals/*": "./evals/*"
   },
   "scripts": {
-    "build": "eve build",
-    "dev": "eve dev",
+    "build": "pnpm --dir packages/eve-channel-agentmail build && eve build",
+    "dev": "pnpm --dir packages/eve-channel-agentmail build && eve dev",
     "start": "eve start",
-    "typecheck": "tsgo",
-    "deploy": "eve deploy"
+    "typecheck": "pnpm --dir packages/eve-channel-agentmail typecheck && tsgo",
+    "deploy": "vercel deploy --prod --yes"
   },
   "dependencies": {
     "@vercel/connect": "^0.2.5",
+    "agentmail": "^0.5.12",
     "ai": "7.0.0-beta.178",
     "eve": "^0.11.6",
-    "eve-channel-agentmail": "file:../eve-channel-agentmail",
+    "eve-channel-agentmail": "workspace:*",
+    "svix": "^1.96.0",
     "zod": "4.4.3"
   },
   "devDependencies": {
