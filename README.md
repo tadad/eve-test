@@ -61,7 +61,7 @@ To finish the deployed Slack setup, provide:
 - Vercel account/team access with permission to create/link projects and Connect connectors.
 - Slack workspace permission to install/authorize the Vercel-managed Slack app.
 - A Vercel project linked to this directory.
-- `SLACK_CONNECTOR`, the Vercel Connect UID, for example `slack/eve-slack-demo`.
+- Slack connector mappings in `config/slackConnectors.json`.
 - `AGENTMAIL_API_KEY` and `AGENTMAIL_WEBHOOK_SECRET` from AgentMail.
 
 ## Later Vercel/Slack setup
@@ -74,10 +74,9 @@ vercel link
 FF_CONNECT_ENABLED=1 vercel connect create slack --name eve-slack-demo --triggers
 FF_CONNECT_ENABLED=1 vercel connect detach slack/eve-slack-demo --yes
 FF_CONNECT_ENABLED=1 vercel connect attach slack/eve-slack-demo --triggers --trigger-path /eve/v1/slack --yes
-vercel env add SLACK_CONNECTOR
 pnpm run deploy
 ```
 
-Set `SLACK_CONNECTOR` to the connector UID, such as `slack/eve-slack-demo`.
+Add each Slack workspace's team ID and connector UID to `config/slackConnectors.json`.
 
 Once deployed, invite the bot to a Slack channel, @mention it, continue in the created thread, DM it, include user/channel mentions, and ask it to publish a demo note to trigger approval buttons.

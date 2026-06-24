@@ -1,14 +1,18 @@
-import { connectSlackCredentials } from "@vercel/connect/eve";
 import {
   defaultSlackAuth,
   loadThreadContextMessages,
   slackChannel,
 } from "eve/channels/slack";
+import {
+  connectSlackTeamCredentials,
+  validateSlackConnectorRegistry,
+} from "../lib/slackTeamConnectors.js";
+import slackConnectorRegistry from "../../config/slackConnectors.json" with { type: "json" };
 
-const connector = process.env.SLACK_CONNECTOR ?? "slack/eve-slack-demo";
+const connectors = validateSlackConnectorRegistry(slackConnectorRegistry);
 
 export default slackChannel({
-  credentials: connectSlackCredentials(connector),
+  credentials: connectSlackTeamCredentials(connectors),
 
   async onAppMention(ctx, message) {
     const auth = defaultSlackAuth(message, ctx);

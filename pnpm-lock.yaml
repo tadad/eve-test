@@ -4,13 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  eve@0.11.6:
+    hash: dmevzsv3iehvnqwcfsyjihu53m
+    path: patches/eve@0.11.6.patch
+
 importers:
 
   .:
     dependencies:
       '@vercel/connect':
         specifier: ^0.2.5
-        version: 0.2.5(ai@7.0.0-beta.178(zod@4.4.3))(eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3)))
+        version: 0.2.5(ai@7.0.0-beta.178(zod@4.4.3))(eve@0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3)))
       agentmail:
         specifier: ^0.5.12
         version: 0.5.12
@@ -19,7 +24,7 @@ importers:
         version: 7.0.0-beta.178(zod@4.4.3)
       eve:
         specifier: ^0.11.6
-        version: 0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3))
+        version: 0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3))
       eve-channel-agentmail:
         specifier: workspace:*
         version: link:packages/eve-channel-agentmail
@@ -60,7 +65,7 @@ importers:
         version: 7.0.0-beta.178(zod@4.4.3)
       eve:
         specifier: ^0.11.6
-        version: 0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@24.13.2))
+        version: 0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@24.13.2))
       typescript:
         specifier: ^5.9.0
         version: 5.9.3
@@ -1356,12 +1361,12 @@ snapshots:
     dependencies:
       execa: 5.1.1
 
-  '@vercel/connect@0.2.5(ai@7.0.0-beta.178(zod@4.4.3))(eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3)))':
+  '@vercel/connect@0.2.5(ai@7.0.0-beta.178(zod@4.4.3))(eve@0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3)))':
     dependencies:
       '@vercel/oidc': 3.6.1
     optionalDependencies:
       ai: 7.0.0-beta.178(zod@4.4.3)
-      eve: 0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3))
+      eve: 0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3))
 
   '@vercel/oidc@3.2.0': {}
 
@@ -1471,7 +1476,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.9
 
-  eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@24.13.2)):
+  eve@0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@24.13.2)):
     dependencies:
       ai: 7.0.0-beta.178(zod@4.4.3)
       nitro: 3.0.260610-beta(vite@8.0.16(@types/node@24.13.2))
@@ -1517,7 +1522,7 @@ snapshots:
       - xml2js
       - zephyr-agent
 
-  eve@0.11.6(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3)):
+  eve@0.11.6(patch_hash=dmevzsv3iehvnqwcfsyjihu53m)(ai@7.0.0-beta.178(zod@4.4.3))(microsandbox@0.5.7)(vite@8.0.16(@types/node@25.9.3)):
     dependencies:
       ai: 7.0.0-beta.178(zod@4.4.3)
       nitro: 3.0.260610-beta(vite@8.0.16(@types/node@25.9.3))

@@ -1,0 +1,7 @@
+{
+  "defaultConnector": "slack/eve-slack-demo",
+  "teams": {
+    "T01JJUE0M1T": "slack/eve-slack-demo",
+    "T08NXFTQSLA": "slack/eve-test-martian"
+  }
+}

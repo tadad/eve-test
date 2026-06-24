@@ -28,5 +28,10 @@
     "@types/node": "^25.9.3",
     "@typescript/native-preview": "^7.0.0-dev.20260618.1",
     "microsandbox": "0.5.7"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "eve@0.11.6": "patches/eve@0.11.6.patch"
+    }
   }
 }
